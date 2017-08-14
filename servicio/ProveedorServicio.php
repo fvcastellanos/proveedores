@@ -26,6 +26,23 @@
 
             return $proveedores;
         }
-    }
 
-?>
+        public function obtenerProveedoresPorDepto() {
+            $proveedores = $this->proveedorDao->obtenerConteoPorDepto();
+
+            return $proveedores;
+        }
+
+        public function cambiarEstadoProveedor($id) {
+            $proveedor = $this->proveedorDao->obtenerPorId($id);
+
+            if ($proveedor != null) {
+                $activo = 1;
+                if ($proveedor->activo == 1) {
+                    $activo = 0;
+                }
+
+                $this->proveedorDao->cambiarEstadoProveedor($id, $activo);
+            }
+        }
+    }

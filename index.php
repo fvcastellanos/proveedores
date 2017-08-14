@@ -21,14 +21,14 @@
             <li><a href="index.php">Inicio</a></li>
             <li><a href="nuevo.php">Nuevo</a></li>
             <li><a href="activos.php">Ver activos</a></li>
-            <li><a href="#">Proveedores por Departamento</a></li>
+            <li><a href="pdeptos.php">Proveedores por Departamento</a></li>
         </ul>
     </nav>
     <main>
         <table>
             <thead>
                 <tr>
-                    <th></th>
+                    <th>A/I</th>
                     <th>Nit</th>
                     <th>Nombre</th>
                     <th>Telefono</th>
@@ -41,7 +41,7 @@
                     foreach ($proveedores as $proveedor) {
                 ?>
                     <tr>
-                        <td></td>
+                        <td><a href="activo.php?id=<?php echo $proveedor->id ?>">A/I</a></td>
                         <td><?php echo $proveedor->nit ?></td>
                         <td><?php echo $proveedor->nombre ?></td>
                         <td><?php echo $proveedor->telefono ?></td>

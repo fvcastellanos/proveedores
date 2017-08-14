@@ -8,13 +8,13 @@
         public $departamento ="";
         public $activo = 1;
 
-        function __construct($id, $nit, $nombre, $telefono, $departamento, $estado) {
+        function __construct($id, $nit, $nombre, $telefono, $departamento, $activo) {
             $this->id = $id;
             $this->nit = $nit;
             $this->nombre = $nombre;
             $this->telefono = $telefono;
             $this->departamento = $departamento;
-            $this->estado = $estado;
+            $this->activo = $activo;
         }
 
     }

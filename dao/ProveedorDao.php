@@ -1,6 +1,7 @@
 <?php
 
-require_once('model/Proveedor.php');
+require_once ('model/Proveedor.php');
+require_once ('model/ConteoDepto.php');
 
 class ProveedorDao {
     const DB_HOST = "azura.cavitos.net";
@@ -100,19 +101,22 @@ class ProveedorDao {
         }
     }
 
-    public function obtenerPorNit($nit) {
+    public function obtenerPorId($id) {
         try {
-            $consulta = "select * from proveedor where nit = ?";
+            $consulta = "select * from proveedor where id = ?";
 
-            $conexion = crearConexion();
+            $conexion = $this->crearConexion();
             $stm = $conexion->prepare($consulta);
-            $stm->bind_param("nit", $nit);
-            $stm->execute();
-            $resultado = $stm->get_result();
 
-            $fila = $resultado->fetch_assoc();
-            $proveedor = new Proveedor($fila['id'], $fila['nit'], $fila['nombre'], $fila['telefono'], 
+            if ($stm) {
+                $stm->bind_param("i", $id);
+                $stm->execute();
+                $resultado = $stm->get_result();
+
+                $fila = $resultado->fetch_assoc();
+                $proveedor = new Proveedor($fila['id'], $fila['nit'], $fila['nombre'], $fila['telefono'],
                     $fila['departamento'], $fila['activo']);
+            }
 
             return $proveedor;
 
@@ -123,6 +127,64 @@ class ProveedorDao {
                 $stm->close();
             }
             
+            $conexion->close();
+        }
+    }
+
+    public function obtenerConteoPorDepto() {
+        try {
+            $lista = array();
+
+            $consulta = "select count(departamento) conteo, departamento " .
+                "from proveedor " .
+                "where activo = 1 " .
+                "group by departamento " .
+                "order by count(departamento) desc";
+
+            $conexion = $this->crearConexion();
+            $stm = $conexion->prepare($consulta);
+
+            if ($stm) {
+                $stm->execute();
+                $resultado = $stm->get_result();
+
+                while($fila = $resultado->fetch_assoc()) {
+                    $lista[] = new ConteoDepto($fila['departamento'], $fila['conteo']);
+                }
+            }
+
+            return $lista;
+
+        } catch(Exception $e) {
+            throw $e;
+        } finally {
+            if ($stm) {
+                $stm->close();
+            }
+
+            $conexion->close();
+        }
+    }
+
+    public function cambiarEstadoProveedor($id, $activo) {
+        try {
+            $consulta = "update proveedor set activo = ? where id = ?";
+
+            $conexion = $this->crearConexion();
+            $stm = $conexion->prepare($consulta);
+
+            if ($stm) {
+                $stm->bind_param("ii", $activo, $id);
+                $stm->execute();
+            }
+
+        } catch (Exception $e) {
+            throw $e;
+        } finally {
+            if ($stm) {
+                $stm->close();
+            }
+
             $conexion->close();
         }
     }
