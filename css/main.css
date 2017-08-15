@@ -1,0 +1,75 @@
+
+body {
+    background-color: #F5F6F7;
+    font-family: Raleway, Helvetica, sans-serif;
+    font-size: 1em;
+    font-weight: 200;
+    letter-spacing: 0.1em;
+    color: #7f888f;
+    margin-left: 1.5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-weight: 700;
+    color: #3D4449;
+    text-transform: uppercase;
+}
+
+header {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+nav {
+    text-transform: uppercase;
+    font-size: 0.8em;
+}
+
+nav ul {
+    list-style: none;
+    margin-left:-2em;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 0.3em;
+    margin-right:0.3em;
+}
+
+a {
+    color: #3d4449;
+}
+
+a:hover {
+    font-weight: bold;
+    color: #f56a6a;
+}
+
+main {
+    margin-top: 2em;
+    margin-left: 1.5em;
+    width: 100%;
+    text-align: left;
+}
+
+main table {
+    margin-left:3em;
+    font-size: 0.8em;
+    padding: 0.2em;
+    border-radius: 5px;
+    width: 60%;
+
+}
+
+main table thead{
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+main table th, td {
+    border-bottom: 1px solid;
+}

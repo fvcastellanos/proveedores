@@ -11,7 +11,7 @@
 <head>
     <meta charset="utf-8">
     <title>Proveedores</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 <h1>Proveedores por departamento</h1>

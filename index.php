@@ -12,18 +12,20 @@
 <head>
     <meta charset="utf-8">
     <title>Proveedores</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <h1>Mantenimiento de Proveedores</h1>
-    <nav>
-        <ul>
-            <li><a href="index.php">Inicio</a></li>
-            <li><a href="nuevo.php">Nuevo</a></li>
-            <li><a href="activos.php">Ver activos</a></li>
-            <li><a href="pdeptos.php">Proveedores por Departamento</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="nuevo.php">Nuevo</a></li>
+                <li><a href="activos.php">Ver activos</a></li>
+                <li><a href="pdeptos.php">Proveedores por Departamento</a></li>
+            </ul>
+        </nav>
+    </header>
     <main>
         <table>
             <thead>

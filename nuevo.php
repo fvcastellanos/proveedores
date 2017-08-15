@@ -20,13 +20,15 @@
 <head>
     <meta charset="utf-8">
     <title>Proveedores</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <h1>Nuevo Proveedor</h1>
-    <nav>
-        <a href="index.php">Regresar</a>
-    </nav>
+    <header>
+        <nav>
+            <a href="index.php">Regresar</a>
+        </nav>
+    </header>
     <main>
         <form method="post">
             <label for="nit">Nit:</label>
